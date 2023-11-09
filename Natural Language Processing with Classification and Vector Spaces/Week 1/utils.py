@@ -26,6 +26,8 @@ def process_tweet(tweet):
     # remove hashtags
     # only removing the hash # sign from the word
     tweet = re.sub(r'#', '', tweet)
+    
+    tweet = re.sub(r'\: ([\)\(])', r':\1', tweet)
     # tokenize tweets
     tokenizer = TweetTokenizer(preserve_case=False, strip_handles=True,
                                reduce_len=True)
